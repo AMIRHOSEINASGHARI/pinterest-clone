@@ -3,10 +3,10 @@ import { mongoConnect } from "@/utils";
 // Models Imports
 import { Project } from "@/utils/models/project";
 
+mongoConnect();
+
 export default async function handler(req, res) {
   if (req.method !== "GET") return;
-
-  await mongoConnect();
 
   const projects = await Project.find().populate({
     path: "createdBy",

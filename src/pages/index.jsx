@@ -5,6 +5,7 @@ import { Loader, MasonryLayout } from "@/components";
 
 const Home = ({ query }) => {
   const [projects, setPtojects] = useState([]);
+  console.log(projects);
 
   useEffect(() => {
     const fetchProjects = async () => {
