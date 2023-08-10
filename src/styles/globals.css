@@ -2,26 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Segoe UI", "Poppins", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .header {
+    @apply flex items-center justify-between py-4 px-3 lg:px-5 fixed top-0 left-0 right-0 z-10 bg-white border-b;
+  }
+  .header-logo {
+    @apply w-7 md:w-8;
+  }
+  .signin-btn {
+    @apply flex items-center shadow rounded-xl py-2 px-4 text-purple-600 text-xs;
+  }
+  .header-user-pic {
+    @apply rounded-full w-9;
+  }
+  .form-image-container {
+    @apply relative w-full flex items-center flex-col text-gray-500 text-sm;
+  }
+  .form-image-label {
+    @apply w-full border-2 border-dashed min-h-[200px] lg:min-h-[300px] flex flex-col items-center justify-center;
+  }
+  .project-btn {
+    @apply p-2 bg-white/80 w-fit rounded-full;
+  }
+  .project-details-btn {
+    @apply bg-gray-100 rounded-full h-8 w-8 flex items-center justify-center;
+  }
+  .create-edit-form-input {
+    @apply bg-gray-100 rounded-lg p-4 lg:p-6 placeholder:text-gray-400 text-gray-600 focus:outline outline-blue-500;
+  }
+  .profile-des-input {
+    @apply bg-gray-100 py-2 px-3 rounded-lg w-[280px] sm:w-[400px] lg:w-[600px] text-gray-600 focus:outline outline-blue-500;
+  }
+  .project-details-buttons {
+    @apply w-full text-left py-0.5 px-4 hover:bg-gray-100 transition duration-100 ease-in-out;
+  }
 }
