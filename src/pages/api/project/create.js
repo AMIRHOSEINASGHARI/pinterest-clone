@@ -17,7 +17,13 @@ cloudinary.config({
 
 export default async function handler(req, res) {
   if (req.method !== "POST") return;
-  await mongoConnect();
+
+  try {
+    await mongoConnect();
+  } catch (error) {
+    console.log(error);
+  }
+
   const body = req.body;
   const session = await getServerSession(req, res, authOptions);
 

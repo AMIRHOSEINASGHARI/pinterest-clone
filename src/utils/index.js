@@ -8,12 +8,8 @@ export async function mongoConnect() {
     console.log("Already Connected");
     return;
   }
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("Connected to DB");
-  } catch (error) {
-    console.log(error, "CANNOT CONNECT TO DB");
-  }
+  await mongoose.connect(process.env.MONGO_URI);
+  console.log("Connected to DB");
 } // $$ CONNECTING TO DB FUNCTION
 
 export const resizeFile = (file) =>

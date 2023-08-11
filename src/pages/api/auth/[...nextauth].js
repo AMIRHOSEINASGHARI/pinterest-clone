@@ -17,7 +17,12 @@ export const authOptions = {
   callbacks: {
     async signIn({ user }) {
       try {
-        await mongoConnect();
+        try {
+          await mongoConnect();
+        } catch (error) {
+          console.log(error);
+        }
+
         const userExistance = await PinterestUser.findOne({
           email: user?.email,
         });

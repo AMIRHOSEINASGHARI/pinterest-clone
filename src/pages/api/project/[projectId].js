@@ -17,7 +17,12 @@ cloudinary.config({
 }); // $$ CLOUDINARY CONFIG
 
 export default async function handler(req, res) {
-  await mongoConnect();
+  try {
+    await mongoConnect();
+  } catch (error) {
+    console.log(error);
+  } // CONNECTING TO DB FUNCTION
+
   const { projectId } = req.query;
   const project = await Project.findById(projectId)
     .populate({

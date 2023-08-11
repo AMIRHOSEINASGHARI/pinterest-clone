@@ -4,7 +4,11 @@ import { mongoConnect } from "@/utils";
 import { PinterestUser } from "@/utils/models/user";
 
 export default async function handler(req, res) {
-  await mongoConnect();
+  try {
+    await mongoConnect();
+  } catch (error) {
+    console.log(error);
+  }
 
   if (req.method === "GET") {
     const { userId } = req.query;
