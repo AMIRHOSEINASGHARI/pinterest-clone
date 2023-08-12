@@ -4,8 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Loader, MasonryLayout } from "@/components";
 
 const Home = ({ query }) => {
-  const [projects, setPtojects] = useState([]);
-  console.log(projects);
+  const [projects, setPtojects] = useState(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -16,9 +15,11 @@ const Home = ({ query }) => {
         (project) =>
           project.category.toLowerCase() === query?.category?.toLowerCase()
       );
-
-      if (filterData.length) {
+      console.log(filterData);
+      if (query?.category && filterData.length !== 0) {
         setPtojects(filterData);
+      } else if (query?.category && filterData.length === 0) {
+        setPtojects([]);
       } else {
         setPtojects(data?.data);
       }
@@ -27,7 +28,7 @@ const Home = ({ query }) => {
     fetchProjects();
   }, [query]);
 
-  if (projects?.length === 0) {
+  if (projects === null) {
     return (
       <Loader
         h="120"
@@ -36,9 +37,9 @@ const Home = ({ query }) => {
         text="We are adding new ideas to your feed"
       />
     );
-  } else if (!projects) {
-    <h1 className="text-center text-3xl">No Pins yet</h1>;
-  } else {
+  } else if (projects?.length === 0) {
+    return <h1 className="text-center text-3xl mt-24">No Pins!</h1>;
+  } else if (projects.length !== 0) {
     return (
       <>
         {Object.keys(query).length !== 0 && (
@@ -49,6 +50,8 @@ const Home = ({ query }) => {
         <MasonryLayout projects={projects} />
       </>
     );
+  } else {
+    return <h1 className="text-center text-3xl mt-24">Server Error</h1>;
   }
 };
 
