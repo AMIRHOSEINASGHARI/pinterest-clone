@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 // Next-Auth Imports
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 // Components Imports
 import { AuthProviders, Button, MenuCategory, ProfileMenu } from "..";
 // COnstants Imports
@@ -13,6 +13,7 @@ import { categoryFilters } from "@/constant";
 import { AiOutlinePlus } from "react-icons/ai";
 import { HiOutlineMenu } from "react-icons/hi";
 import { GrClose } from "react-icons/gr";
+import { FcGoogle } from "react-icons/fc";
 
 const Navbar = () => {
   const session = useSession();
