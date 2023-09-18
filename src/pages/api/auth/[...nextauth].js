@@ -5,13 +5,13 @@ import { PinterestUser } from "@/utils/models/user";
 // Next-Auth Imports
 import NextAuth from "next-auth";
 // Next-Auth Provider Imports
-import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
 
 export const authOptions = {
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
     }),
   ], // $$ PROVIDERS
   callbacks: {

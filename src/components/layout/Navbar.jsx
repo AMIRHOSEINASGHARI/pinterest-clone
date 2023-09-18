@@ -13,7 +13,6 @@ import { categoryFilters } from "@/constant";
 import { AiOutlinePlus } from "react-icons/ai";
 import { HiOutlineMenu } from "react-icons/hi";
 import { GrClose } from "react-icons/gr";
-import { FcGoogle } from "react-icons/fc";
 
 const Navbar = () => {
   const session = useSession();
