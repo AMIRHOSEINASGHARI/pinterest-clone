@@ -1,6 +1,8 @@
 // Next-Auth Imports
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
+// Mongoose Imports
+import { Types } from "mongoose";
 // Utility Functions Imports
 import { cloudinaryOptions, mongoConnect } from "@/utils";
 // Cloudinary Imports
@@ -80,8 +82,8 @@ export default async function handler(req, res) {
 
         const comment = await Comment.create({
           text,
-          projectId,
-          senderId: session.id,
+          projectId: new Types.ObjectId(projectId),
+          senderId: new Types.ObjectId(session.id),
         });
 
         project.comments.push(comment._id);

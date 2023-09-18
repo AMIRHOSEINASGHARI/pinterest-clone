@@ -1,6 +1,8 @@
 // Next-Auth Imports
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
+// Mongoose Imports
+import { Types } from "mongoose";
 // Utils Imports
 import { cloudinaryOptions, mongoConnect } from "@/utils";
 // Cloudinary Imports
@@ -54,7 +56,7 @@ export default async function handler(req, res) {
       category: body.category,
       websiteUrl: body.websiteUrl || "",
       comments: [],
-      createdBy: user._id,
+      createdBy: new Types.ObjectId(user._id),
     }); // $$ CREATING PROJECT
 
     user.projects.push(project._id);
