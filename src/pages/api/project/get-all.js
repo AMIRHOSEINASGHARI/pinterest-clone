@@ -2,6 +2,7 @@
 import { mongoConnect } from "@/utils";
 // Models Imports
 import { Project } from "@/utils/models/project";
+import { PinterestUser } from "@/utils/models/user";
 
 export default async function handler(req, res) {
   if (req.method !== "GET") return;
@@ -14,6 +15,7 @@ export default async function handler(req, res) {
 
   const projects = await Project.find().populate({
     path: "createdBy",
+    model: PinterestUser,
     select: ["avatarUrl", "email", "name"],
   });
 

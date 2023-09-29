@@ -2,6 +2,7 @@
 import { mongoConnect } from "@/utils";
 // Models Imports
 import { PinterestUser } from "@/utils/models/user";
+import { Project } from "@/utils/models/project";
 
 export default async function handler(req, res) {
   try {
@@ -14,6 +15,7 @@ export default async function handler(req, res) {
     const { userId } = req.query;
     const user = await PinterestUser.findOne({ _id: userId }).populate({
       path: "projects",
+      model: Project,
       select: ["image", "title"],
     });
 

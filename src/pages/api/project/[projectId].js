@@ -29,10 +29,12 @@ export default async function handler(req, res) {
   const project = await Project.findById(projectId)
     .populate({
       path: "createdBy",
+      model: PinterestUser,
       select: ["_id", "name", "email", "avatarUrl"],
     })
     .populate({
       path: "comments",
+      model: Comment,
       populate: { path: "senderId" },
     });
   const user = await PinterestUser.findById(project?.createdBy?._id);
@@ -42,6 +44,7 @@ export default async function handler(req, res) {
     try {
       const projects = await Project.find().populate({
         path: "createdBy",
+        model: PinterestUser,
         select: ["avatarUrl", "name", "_id"],
       });
       const moreLikeProject = projects.filter(
