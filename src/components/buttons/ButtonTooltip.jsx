@@ -1,17 +1,17 @@
-// Next Imports
+//* Next Imports
 import Link from "next/link";
-// Tooltip Imports
+//* Tooltip Imports
 import { Tooltip } from "react-tooltip";
 
 const ButtonTooltip = (props) => {
   const { children } = props;
-  // Common props
+  //* Common props
   const { styles, tooltipId, tooltipContent, openOnClick, toolipHide } = props;
-  // Anchor tag props
+  //* Anchor tag props
   const { isAnchorTag, anchorHref, target, download } = props;
-  // Next link tag props
+  //* Next link tag props
   const { isNextLinkTag, nextHref } = props;
-  // Simple tag props
+  //* Simple tag props
   const { isSimpleTag } = props;
 
   if (isAnchorTag) {

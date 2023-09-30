@@ -1,14 +1,14 @@
-// React Imports
+//* React Imports
 import { useEffect, useState } from "react";
-// Next Imports
+//* Next Imports
 import { useRouter } from "next/router";
 import Link from "next/link";
-// Next-Auth Imports
+//* Next-Auth Imports
 import { getSession } from "next-auth/react";
-// Components Imports
+//* Components Imports
 import { Loader, Modal, ProjectForm } from "@/components";
 import { getProjectDetails } from "@/utils/api";
-// React Icons Imports
+//* React Icons Imports
 import { FiAlertTriangle } from "react-icons/fi";
 
 const Edit = ({ session }) => {

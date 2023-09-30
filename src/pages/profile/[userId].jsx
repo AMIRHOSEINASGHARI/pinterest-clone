@@ -1,16 +1,16 @@
-// React Imports
+//* React Imports
 import { useEffect, useState } from "react";
-// Next Imports
+//* Next Imports
 import Image from "next/image";
 import { useRouter } from "next/router";
-// Next-Auth Imports
+//* Next-Auth Imports
 import { useSession } from "next-auth/react";
-// Components Imports
+//* Components Imports
 import { Button, FormField, Loader, MasonryLayout } from "@/components";
-// React Icons Imports
+//* React Icons Imports
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import { FaLongArrowAltLeft } from "react-icons/fa";
-// Utility Functions Imports
+//* Utility Functions Imports
 import { updateUserProfile } from "@/utils/api";
 
 const User = (props) => {
@@ -73,7 +73,7 @@ const User = (props) => {
           title={<FaLongArrowAltLeft />}
         />
         <div className="flex flex-col items-center mb-10 lg:mb-36 p-3">
-          {/* //   AVATAR SECTION    //*/}
+          {/*   AVATAR SECTION   */}
           <a href={avatarUrl} download target="_blank">
             <Image
               src={avatarUrl}
@@ -84,7 +84,7 @@ const User = (props) => {
             />
           </a>
           <div className="w-full">
-            {/* //   NAME AND EMAIL SECTION    //*/}
+            {/*   NAME AND EMAIL SECTION   */}
             <div className="my-3">
               <h1 className="uppercase tracking-tight text-center font-bold text-lg md:text-2xl lg:text-4xl">
                 {name}
@@ -93,7 +93,7 @@ const User = (props) => {
                 {email.split("@")[0]}
               </h3>
             </div>
-            {/* //   DESCRIPTION SECTION    //*/}
+            {/*   DESCRIPTION SECTION   */}
             <div className="w-full">
               {description && (
                 <div className="w-full flex justify-center">
@@ -142,7 +142,7 @@ const User = (props) => {
             </div>
           </div>
         </div>
-        {/* //   USER PROJECTS SECTION    //*/}
+        {/*   USER PROJECTS SECTION   */}
         <div>
           <div className="flex justify-center">
             <h1 className="text-center py-2 mb-3 relative border-b-4 font-medium border-black w-fit">
@@ -153,7 +153,7 @@ const User = (props) => {
             </h1>
           </div>
           {projects?.length ? (
-            <MasonryLayout projects={projects} isProfile />
+            <MasonryLayout projects={projects} />
           ) : (
             <div className="flex justify-center">
               <h1>No Posts</h1>

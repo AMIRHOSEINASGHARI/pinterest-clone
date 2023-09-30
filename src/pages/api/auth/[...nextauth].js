@@ -8,13 +8,16 @@ import NextAuth from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 
 export const authOptions = {
+  //* PROVIDER's
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
-  ], // $$ PROVIDERS
+  ],
+  //* CALLBACK's
   callbacks: {
+    //* SIGN IN CALLBACK FUNCTION
     async signIn({ user }) {
       try {
         try {
@@ -41,7 +44,8 @@ export const authOptions = {
       } catch (error) {
         return false;
       }
-    }, // $$ SIGN IN CALLBACK FUNCTION
+    },
+    //* SESSION CALLBACK FUNCTION
     async session({ session }) {
       try {
         const user = await PinterestUser.findOne({
@@ -57,8 +61,8 @@ export const authOptions = {
       } catch (error) {
         return session;
       }
-    }, // $$ SESSION CALLBACK FUNCTION
-  }, // $$ CALLBACKS
+    },
+  },
 };
 
 export default NextAuth(authOptions);

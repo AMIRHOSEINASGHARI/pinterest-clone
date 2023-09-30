@@ -43,7 +43,7 @@ const ProfileMenu = ({ session }) => {
   return (
     <div className="relative">
       <Menu as="div" className="text-gray-600">
-        {/* //   MENU BUTTON/PROFILE PIC SECTION    //*/}
+        {/*   MENU BUTTON/PROFILE PIC SECTION   */}
         <div className="flex items-center gap-1">
           {session?.data?.image && (
             <>
@@ -72,7 +72,7 @@ const ProfileMenu = ({ session }) => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-90"
         >
-          {/* //   MENU ITEMS SECTION    //*/}
+          {/*   MENU ITEMS SECTION   */}
           <Menu.Items
             onMouseLeave={() => setOpenModal(false)}
             className="absolute w-[280px] top-[62px] right-0 z-20 bg-white shadow-lg rounded-xl p-3"

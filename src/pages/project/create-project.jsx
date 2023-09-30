@@ -1,6 +1,6 @@
-// Next-Auth Imports
+//* Next-Auth Imports
 import { getSession } from "next-auth/react";
-// Components Imports
+//* Components Imports
 import { Modal, ProjectForm } from "@/components";
 
 const CreateProject = () => {

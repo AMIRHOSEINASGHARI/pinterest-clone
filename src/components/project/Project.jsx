@@ -7,10 +7,10 @@ import { shorterText } from "@/utils";
 import { HiOutlineDownload } from "react-icons/hi";
 
 const Project = (props) => {
-  const { createdBy, websiteUrl, image, title, _id, isProfile } = props;
+  const { websiteUrl, image, _id } = props;
 
   return (
-    <div className="mb-2">
+    <div className="mb-1 sm:mb-2 md:mb-4">
       <div className="group rounded-2xl md:rounded-3xl overflow-hidden bg-gray-100 relative">
         {/* // OVERLAY BG // */}
         <Link
@@ -46,31 +46,6 @@ const Project = (props) => {
           className="max-h-[600px] object-cover"
         />
       </div>
-      {/* // USER // */}
-      {!isProfile && (
-        <div className="py-1 px-2">
-          {title && (
-            <h1 className="font-bold tracking-tight text-xs md:text-base mb-1">
-              {shorterText(title, 30)}
-            </h1>
-          )}
-          <Link
-            href={`/profile/${createdBy?._id}`}
-            className="flex items-center gap-1 w-fit"
-          >
-            <Image
-              src={createdBy?.avatarUrl || "/user.png"}
-              alt="user"
-              width={30}
-              height={30}
-              className="rounded-full object-contain w-6 md:w-auto"
-            />
-            <p className="text-black font-semibold text-[10px] md:text-sm uppercase tracking-tight">
-              {shorterText(createdBy?.name, 10)}
-            </p>
-          </Link>
-        </div>
-      )}
     </div>
   );
 };

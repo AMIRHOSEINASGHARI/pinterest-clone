@@ -31,7 +31,7 @@ const Navbar = () => {
             handleButton={handleMenu}
             styles="p-2 hover:bg-gray-100 rounded-full text-3xl"
           />
-          {/* //   LOGO SECTION    //*/}
+          {/*   LOGO SECTION   */}
           <Link href="/">
             <Image
               src="/logo-pen.svg"

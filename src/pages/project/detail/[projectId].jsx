@@ -1,13 +1,14 @@
-// React Imports
+//* React Imports
 import { useEffect, useRef, useState } from "react";
-// Next Imports
+//* Next Imports
 import Image from "next/image";
+import Head from "next/head";
 import { useRouter } from "next/router";
-// Next-Auth Imports
+//* Next-Auth Imports
 import { useSession } from "next-auth/react";
-// Utility Functions Imports
+//* Utility Functions Imports
 import { shorterText } from "@/utils";
-// Components Imports
+//* Components Imports
 import {
   Button,
   CommentsSection,
@@ -17,7 +18,7 @@ import {
   ProjectActions,
   PublishComment,
 } from "@/components";
-// React Icons Imports
+//* React Icons Imports
 import { FaLongArrowAltLeft } from "react-icons/fa";
 
 const ProjectDetails = ({ projectId }) => {
@@ -56,7 +57,12 @@ const ProjectDetails = ({ projectId }) => {
 
     return (
       <div className="p-3">
-        {/* // ARROW BACK // */}
+        {title && (
+          <Head>
+            <title>{title}</title>
+          </Head>
+        )}
+        {/* ARROW BACK */}
         <Button
           handleButton={goPrevPage}
           styles="bg-gray-300 h-12 w-12 text-black shadow-lg flex items-center justify-center rounded-full fixed z-10 top-22 left-3 lg:left-8"
@@ -64,7 +70,7 @@ const ProjectDetails = ({ projectId }) => {
         />
         <div className="flex items-center justify-center">
           <div className="rounded-3xl cursor-default flex flex-col lg:flex-row overflow-hidden min-w-[280px] lg:w-[950px] shadow-[0_0_20px_rgba(0,0,0,0.2)]">
-            {/* // IMAGE // */}
+            {/* IMAGE */}
             <div>
               <Image
                 ref={imageRef}
@@ -77,7 +83,7 @@ const ProjectDetails = ({ projectId }) => {
             </div>
             <div className="p-5 px-3 sm:p-8 lg:w-1/2 flex flex-col justify-between">
               <div>
-                {/* // PROJECT ACTIONS(BUTTONS) // */}
+                {/* PROJECT ACTIONS(BUTTONS) */}
                 <div className="flex items-center justify-between bg-white py-2">
                   <ProjectActions
                     session={session}
@@ -92,7 +98,7 @@ const ProjectDetails = ({ projectId }) => {
                   className={`overflow-y-auto`}
                   style={{ maxHeight: imageHeight }}
                 >
-                  {/* // WEBSITE URL // */}
+                  {/* WEBSITE URL */}
                   {websiteUrl && (
                     <a
                       href={websiteUrl}
@@ -102,7 +108,7 @@ const ProjectDetails = ({ projectId }) => {
                       {shorterText(websiteUrl, 25)}
                     </a>
                   )}
-                  {/* // TITLE AND DESCRIPTION // */}
+                  {/* TITLE AND DESCRIPTION */}
                   <div className="flex flex-col gap-5 mt-3 mb-8">
                     <h1 className="font-bold text-2xl tracking-tight">
                       {title}
@@ -111,13 +117,13 @@ const ProjectDetails = ({ projectId }) => {
                       <p className="text-xs tracking-tight">{description}</p>
                     )}
                   </div>
-                  {/* // CREATED BY // */}
+                  {/* CREATED BY */}
                   <CreatedBySection data={data} />
-                  {/* // COMMENTS // */}
+                  {/* COMMENTS */}
                   <CommentsSection comments={comments} />
                 </div>
               </div>
-              {/* // PUBLISH COMMENT // */}
+              {/* PUBLISH COMMENT */}
               {session?.status === "authenticated" && (
                 <PublishComment
                   fetchProject={fetchProject}
@@ -128,7 +134,7 @@ const ProjectDetails = ({ projectId }) => {
             </div>
           </div>
         </div>
-        {/* // MORE LIKE CATEGORY COMMENT // */}
+        {/* MORE LIKE CATEGORY COMMENT */}
         {data?.data?.moreLikeProject.length > 0 && (
           <div onClick={(e) => e.stopPropagation()}>
             <h1 className="text-center font-medium tracking-tight mt-12 mb-4">

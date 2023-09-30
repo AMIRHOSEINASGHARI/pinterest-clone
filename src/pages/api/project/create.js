@@ -1,22 +1,24 @@
-// Next-Auth Imports
+//* Next-Auth Imports
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
-// Mongoose Imports
+//* Mongoose Imports
 import { Types } from "mongoose";
-// Utils Imports
+//* Utils Imports
 import { cloudinaryOptions, mongoConnect } from "@/utils";
-// Cloudinary Imports
+//* Cloudinary Imports
 import { v2 as cloudinary } from "cloudinary";
-// Models Imports
+//* Models Imports
 import { PinterestUser } from "@/utils/models/user";
 import { Project } from "@/utils/models/project";
 
+//* CLOUDINARY CONFIG
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
-}); // $$ CLOUDINARY CONFIG
+});
 
+//* CREATING(POST) PROJECT
 export default async function handler(req, res) {
   if (req.method !== "POST") return;
 
@@ -49,6 +51,7 @@ export default async function handler(req, res) {
       cloudinaryOptions
     );
 
+    //* CREATING PROJECT
     const project = await Project.create({
       title: body.title || "",
       description: body.description || "",
@@ -57,7 +60,7 @@ export default async function handler(req, res) {
       websiteUrl: body.websiteUrl || "",
       comments: [],
       createdBy: new Types.ObjectId(user._id),
-    }); // $$ CREATING PROJECT
+    });
 
     user.projects.push(project._id);
     user.save();
@@ -73,4 +76,4 @@ export default async function handler(req, res) {
         "Upload Failed! Check your internet connection or try again leter",
     });
   }
-} // $$ CREATING(POST) PROJECT
+}

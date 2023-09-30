@@ -37,7 +37,7 @@ const MenuCategory = ({ categories, showMenu, setShowMenu, session }) => {
         leaveTo="transform opacity-0 scale-95"
         className="flex flex-col gap-0.5 divide-y-2"
       >
-        {/* //   ALL    //*/}
+        {/*   ALL   */}
         <Link
           onClick={() => setShowMenu(false)}
           href="/"
@@ -48,7 +48,7 @@ const MenuCategory = ({ categories, showMenu, setShowMenu, session }) => {
           </div>
           All
         </Link>
-        {/* //   CATEGORIES    //*/}
+        {/*   CATEGORIES   */}
         <div className="gap-0.5 flex flex-col">
           {categories.map((item, index) => (
             <div
@@ -65,7 +65,7 @@ const MenuCategory = ({ categories, showMenu, setShowMenu, session }) => {
             </div>
           ))}
         </div>
-        {/* //   SIGN OUT BTN    //*/}
+        {/*   SIGN OUT BTN   */}
         {session.status === "authenticated" && (
           <Button
             styles="flex items-center font-bold text-red-500 py-2 pl-5 lg:pl-8 pr-14 lg:pr-20"

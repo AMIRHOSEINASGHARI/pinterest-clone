@@ -12,18 +12,21 @@ import { Project } from "@/utils/models/project";
 import { PinterestUser } from "@/utils/models/user";
 import { Comment } from "@/utils/models/comment";
 
+//* CLOUDINARY CONFIG
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
-}); // $$ CLOUDINARY CONFIG
+});
 
+//* FINDING(GET) or UPDATING(PATCH) or DELETING(DELETE) PROJECT
 export default async function handler(req, res) {
+  //* CONNECTING TO DB FUNCTION
   try {
     await mongoConnect();
   } catch (error) {
     console.log(error);
-  } // CONNECTING TO DB FUNCTION
+  }
 
   const { projectId } = req.query;
   const project = await Project.findById(projectId)
@@ -117,4 +120,4 @@ export default async function handler(req, res) {
       res.status(500).json({ status: "failed" });
     }
   }
-} // $$ FINDING(GET) or UPDATING(PATCH) or DELETING(DELETE) PROJECT
+}

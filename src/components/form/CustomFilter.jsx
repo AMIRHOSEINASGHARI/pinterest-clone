@@ -1,8 +1,8 @@
-// React Imports
+//* React Imports
 import { Fragment, useState } from "react";
-// Headledd UI Imports
+//* Headledd UI Imports
 import { Listbox, Transition } from "@headlessui/react";
-// React Icons Imports
+//* React Icons Imports
 import { BiChevronDown } from "react-icons/bi";
 
 const CustomFilter = ({ filters, setForm, form }) => {
@@ -20,7 +20,6 @@ const CustomFilter = ({ filters, setForm, form }) => {
     <div className="w-56 text-left">
       <Listbox value={selected} onChange={changeHandler}>
         <div className="relative">
-          {/* //   BUTTON SECTION    //*/}
           <Listbox.Button className="relative cursor-pointer w-full rounded-lg bg-gray-100 p-4 lg:p-6 pr-10 text-left">
             <span className="block truncate">
               {selected || "Select a Category"}
@@ -35,7 +34,6 @@ const CustomFilter = ({ filters, setForm, form }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            {/* //   LIST OPTIONS SECTION    //*/}
             <Listbox.Options className="absolute mt-1 h-[200px] w-full overflow-auto bg-white shadow-2xl shadow-gray-300">
               <Listbox.Option value="" className="py-2 px-4 text-gray-400">
                 Select a Category

@@ -1,9 +1,10 @@
-// Utility Functions Imports
+//* Utility Functions Imports
 import { mongoConnect } from "@/utils";
-// Models Imports
+//* Models Imports
 import { Project } from "@/utils/models/project";
 import { PinterestUser } from "@/utils/models/user";
 
+//* FINDING(GET) ALL PROJECTS
 export default async function handler(req, res) {
   if (req.method !== "GET") return;
 
@@ -24,4 +25,4 @@ export default async function handler(req, res) {
   } else {
     res.status(500).json({ status: "failed", message: "server error" });
   }
-} // $$ FINDING(GET) ALL PROJECTS
+}

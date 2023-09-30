@@ -5,7 +5,6 @@ const FormField = (props) => {
 
   return (
     <div className="flex flex-col gap-3 w-full">
-      {/* //   LABEL SECTION    //*/}
       {inputLabel && (
         <label>
           {inputLabel}{" "}
@@ -14,7 +13,6 @@ const FormField = (props) => {
           )}
         </label>
       )}
-      {/* //   IS_TEXTAREA/OTHER INPUT TYPE SECTION    //*/}
       {isTextArea ? (
         <textarea
           name={name || ""}

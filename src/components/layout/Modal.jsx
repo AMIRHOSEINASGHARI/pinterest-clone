@@ -8,7 +8,7 @@ const Modal = ({ children }) => {
 
   return (
     <div className="bg-black/80 fixed inset-0 z-30">
-      {/* //   CLOSE BUTTON SECTION    //*/}
+      {/*   CLOSE BUTTON SECTION   */}
       <div onClick={() => router.push("/")} className="p-5 flex justify-end">
         <button
           type="button"
@@ -18,7 +18,7 @@ const Modal = ({ children }) => {
           <IoMdClose />
         </button>
       </div>
-      {/* //   INSIDER SECTION / THIS COMPONENT HAS BEEN USED INSIDE THE /project/create-project ROUTE    //*/}
+      {/*   INSIDER SECTION / THIS COMPONENT HAS BEEN USED INSIDE THE /project/create-project ROUTE   */}
       <div className="bg-white h-[95%] rounded-t-xl px-5 lg:px-48 pt-12 pb-48 overflow-auto no-scrollbar">
         {children}
       </div>

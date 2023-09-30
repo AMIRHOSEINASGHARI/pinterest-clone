@@ -1,6 +1,6 @@
-// Next Imports
+//* Next Imports
 import Link from "next/link";
-// React Icons Imports
+//* React Icons Imports
 import { FiAlertTriangle } from "react-icons/fi";
 
 const NotFound = () => {

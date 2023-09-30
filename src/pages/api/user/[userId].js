@@ -1,9 +1,10 @@
-// Utility Functions Imports
+//* Utility Functions Imports
 import { mongoConnect } from "@/utils";
-// Models Imports
+//* Models Imports
 import { PinterestUser } from "@/utils/models/user";
 import { Project } from "@/utils/models/project";
 
+//* FINDING(GET) or UPDATING(PATCH) USER PROFILE
 export default async function handler(req, res) {
   try {
     await mongoConnect();
@@ -49,4 +50,4 @@ export default async function handler(req, res) {
       });
     }
   }
-} // $$ FINDING(GET) or UPDATING(PATCH) USER PROFILE
+}
